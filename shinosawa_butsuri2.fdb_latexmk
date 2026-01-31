@@ -1,6 +1,6 @@
 # Fdb version 4
-["lualatex"] 1769894183.28198 "/Users/akihisatateishi/Library/CloudStorage/Dropbox/AT_sub-main/TeX/shinosawa_butsuri2/shinosawa_butsuri2.tex" "shinosawa_butsuri2.pdf" "shinosawa_butsuri2" 1769894187.00639 0
-  "/Users/akihisatateishi/Library/CloudStorage/Dropbox/AT_sub-main/TeX/shinosawa_butsuri2/shinosawa_butsuri2.tex" 1769894176.82251 144757 51bc73e0ece0ca6ce9631512535175b3 ""
+["lualatex"] 1769895110.70333 "/Users/akihisatateishi/Library/CloudStorage/Dropbox/AT_sub-main/TeX/shinosawa_butsuri2/shinosawa_butsuri2.tex" "shinosawa_butsuri2.pdf" "shinosawa_butsuri2" 1769895114.41511 0
+  "/Users/akihisatateishi/Library/CloudStorage/Dropbox/AT_sub-main/TeX/shinosawa_butsuri2/shinosawa_butsuri2.tex" 1769895106.2076 144757 51bc73e0ece0ca6ce9631512535175b3 ""
   "/Users/akihisatateishi/Library/texlive/2025/texmf-var/luatex-cache/generic/fonts/otl/haranoajigothic-medium.luc" 1769894180.03409 1943012 4230755a7ac3b71bdd91013fd41ae528 ""
   "/Users/akihisatateishi/Library/texlive/2025/texmf-var/luatex-cache/generic/fonts/otl/haranoajimincho-regular.luc" 1769889103.23486 2011333 eac6ca39cc1a71222f175e479eb0fc47 ""
   "/Users/akihisatateishi/Library/texlive/2025/texmf-var/luatex-cache/generic/fonts/otl/lmmono10-regular.luc" 1769894180.9521 81837 7091cab214959897276971ec5ae174a1 ""
@@ -354,8 +354,8 @@
   "/usr/local/texlive/2025/texmf-dist/tex/platex/jsclasses/jslogo.sty" 1601931076 5585 8e4615c54073c390d14154b29cee89cb ""
   "/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1758569532 5528139 daf1353d2d3d7fed9df2ebbf1b26218e ""
   "/usr/local/texlive/2025/texmf-var/web2c/luahbtex/lualatex.fmt" 1758570057 5596291 deda39b8c8c66eec7248df301142fa0f ""
-  "shinosawa_butsuri2.aux" 1769894186.58707 14057 46ae77c9658bd54c0c35e702f73451b7 "lualatex"
-  "shinosawa_butsuri2.tex" 1769894176.82251 144757 51bc73e0ece0ca6ce9631512535175b3 ""
+  "shinosawa_butsuri2.aux" 1769895114.0357 14057 46ae77c9658bd54c0c35e702f73451b7 "lualatex"
+  "shinosawa_butsuri2.tex" 1769895106.2076 144757 51bc73e0ece0ca6ce9631512535175b3 ""
   (generated)
   "shinosawa_butsuri2.aux"
   "shinosawa_butsuri2.log"
