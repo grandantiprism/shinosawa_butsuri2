@@ -32,6 +32,10 @@
 \maketitle
 %\textbf{括弧と引用符のチェック}
 
+\newpage
+\tableofcontents
+\newpage
+
 \section{始まり}
 \noindent
 \textbf{佑芽} 広ちゃんって物理とか数学が好きなんだよね？\parno
@@ -90,7 +94,9 @@
 \section{ $\wp$関数？}
 \end{comment}
 
-\section{量子力学（不確定性関係）}
+\section{量子力学と直交多項式・微分方程式}
+
+\subsection{不確定性関係}
 \begin{tcolorbox}
   \begin{gather}
     \int x^2|\psi(x)|^2dx\int\omega^2|\tilde\psi(\omega)|^2d\omega\ge\frac14,\label{eq:uncertainty_relation_Fourier}\\
@@ -170,6 +176,150 @@
 あとは$p=\hbar\omega$とすれば(\ref{eq:uncertainty_relation_physical})が得られる. ……ふふ.\parno
 \textbf{佑芽} どうしたの？\parno
 \textbf{広} 不確定性関係は量子論の``ままならなさ"をあらわしている. 非可換なふたつの作用素の片方の値を確定させようとするともう一方の値の分散は限りなく大きくなる. まるで, わたしが完璧なダンスを目指して必死に練習したら, 今度は歌がボロボロになる, みたいに.
+
+\subsection{直交関数の零点分離定理}
+\noindent
+\textbf{広} いまからするふたつの話では、量子力学なんかでもよく出てくる2階の微分作用素の固有関数や固有値に関する話をする, よ. 
+
+まずは直交多項式の零点の交絡に関する話. 区間 $(a, b)$ 上の正の重み関数 $w(x)$ に関して直交する実多項式列 $\{\phi_n(x)\}_{n=0}^\infty$ を考える. ただし$\phi_n(x)$はモニック, つまり最高次の係数が1であるとし, 関数どうしの内積は
+\begin{align}
+  \langle f, g \rangle = \int_a^b f(x)g(x)w(x) dx,
+\end{align}
+で定義されているとする. このとき, \textbf{$\phi_n(x)$ の $n$ 個の零点はすべて実数であり、区間 $(a, b)$ 内において互いに異なる}という性質がなりたつ. さらに, それらの零点を$x_1^{(n)}<\dots< x_n^{(n)}$とすると,
+\begin{tcolorbox}
+\begin{align}
+  x_k^{(n+1)}<x_k^{(n)}<x_{k+1}^{(n+1)},\quad k=1,\dots, n,\label{eq:zero_interlacing}
+\end{align}
+\end{tcolorbox}
+\noindent
+がなりたつ. つまり, \textbf{$\phi_n(x)$ と $\phi_{n+1}(x)$ の零点は交互に並ぶ}. このことを\textbf{零点が交絡する}という. 少し長い話になるけど, ここからはこの零点の交絡の証明を追ってみよう.
+
+まずは$\phi_n(x)$ の $n$ 個の零点がすべて, 区間 $(a, b)$ 内において互いに異なる実数になる, という部分を示す. 区間 $(a, b)$ 内において, $\phi_n(x)$ が正から負, または負から正へ符号を変える点の集合を考える. これらを $x_1, x_2, \dots, x_k$ とおく. $\phi_n(x)$ は $n$ 次多項式だから, 符号を変える零点の個数 $k$ は高々 $n$ 個, つまり$0 \le k \le n$. ここで、$k < n$ であると仮定して矛盾を導く. これらの $k$ 個の点 $x_1, \dots, x_k$ を根にもつ $k$ 次の多項式 $P_k(x)$ を$P_k(x) = (x - x_1)(x - x_2) \cdots (x - x_k)$と定義する. ただし, もし $k=0$ なら $P_0(x) = 1$ とする. ここで, 積 $\phi_n(x) P_k(x)$ の符号を考えると, 区間 $(a, b)$ 全体で常に非負または常に非正になることがわかる. $\phi_n(x) P_k(x)$ は区間 $(a, b)$ 内で定符号で, 常には0ではないから, 重み$w(x) > 0$ をかけた積分は厳密に0でない値になる：
+\begin{align}
+  \int_a^b \phi_n(x) P_k(x) w(x) dx \neq 0.\label{eq:nonzero_inner_product}
+\end{align}
+いっぽう, $\phi_n(x)$ は定義より次数が $n$ 未満の任意の多項式と直交する. 背理法の仮定より$k<n$で, $P_k(x)$ は $k$ 次多項式だから, 
+\begin{align}
+  \langle \phi_n, P_k \rangle = \int_a^b \phi_n(x) P_k(x) w(x) dx = 0.\label{eq:zero_inner_product}
+\end{align}
+(\ref{eq:nonzero_inner_product})と(\ref{eq:zero_inner_product})は矛盾しているから最初の仮定が間違いで, $\phi_n(x)$ は区間 $(a, b)$ 内で$n$回符号を変える, つまり$n$個の単根をすべて$(a, b)$にもつことがいえた.
+
+つぎに, 直交多項式系 $\{\phi_j(x)\}$ がみたす3項漸化式と, その帰結としてクリストッフェル・ダルブーの公式を導く. 直交多項式系 $\{\phi_0, \phi_1, \dots, \phi_{n+1}\}$ は $n+1$ 次以下の多項式空間の完全な基底をなし, $x\phi_n(x)$ は$n+1$ 次の多項式だから,
+\begin{align}
+  x \phi_n(x) = \sum_{j=0}^{n+1} c_j \phi_j(x),
+\end{align}
+と展開できる. この両辺の $\phi_j(x)$との内積をとると,
+\begin{align}
+  c_j \langle \phi_j, \phi_j \rangle = \langle x \phi_n, \phi_j \rangle = \langle \phi_n, x \phi_j \rangle.
+\end{align}
+最右辺が0でないためには$x\phi_j$の次数が$n$以上でなければいけない. また, $h_j\coloneqq \langle \phi_j, \phi_j \rangle > 0$ だから,
+\begin{align}
+  x \phi_j(x) = A_j \phi_{j+1}(x) + B_j \phi_j(x) + C_j \phi_{j-1}(x),\label{eq:3-term_recursion}
+\end{align}
+がわかった. いま, $\{\phi_n\}_n$はモニックにとっているから, $A_j=1$もわかる. (\ref{eq:3-term_recursion})と$\phi_{j-1}(x)$の内積をとると,
+\begin{align}
+  \langle x\phi_j, \phi_{j-1} \rangle = C_j \langle \phi_{j-1}, \phi_{j-1} \rangle = C_j h_{j-1}.
+\end{align}
+いっぽう,
+\begin{align}
+  \langle x\phi_j, \phi_{j-1} \rangle = \langle \phi_j, x\phi_{j-1} \rangle = \langle \phi_j, \phi_j + B_{j-1}\phi_{j-1} + C_{j-1}\phi_{j-2} \rangle = h_j,
+\end{align}
+より,
+\begin{align}
+  C_j h_{j-1} = h_j,\label{eq:relation_C_norm}
+\end{align}
+がわかる. 変数 $x$ と $y$ について漸化式をそれぞれ書いて,
+\begin{align}
+  x \phi_j(x) & = \phi_{j+1}(x) + B_j \phi_j(x) + C_j \phi_{j-1}(x),\label{eq:recursion_x}\\
+  y \phi_j(y) & = \phi_{j+1}(y) + B_j \phi_j(y) + C_j \phi_{j-1}(y).\label{eq:recursion_y}
+\end{align}
+(\ref{eq:recursion_x})に$\phi_j(y)$をかけて, (\ref{eq:recursion_y})に$\phi_j(x)$をかけて辺々引くと,
+\begin{align}
+  (x - y) \phi_j(x)\phi_j(y) = \phi_{j+1}(x)\phi_j(y) - \phi_j(x)\phi_{j+1}(y) - C_j \left( \phi_j(x)\phi_{j-1}(y) - \phi_{j-1}(x)\phi_j(y) \right).
+\end{align}
+$F_j(x, y) = \phi_{j+1}(x)\phi_j(y) - \phi_j(x)\phi_{j+1}(y)$とおくと,
+\begin{align}
+  (x - y) \phi_j(x)\phi_j(y) = F_j(x, y) - C_j F_{j-1}(x, y).
+\end{align}
+ただし, $j=0$のとき$F_{-1}=0$と解釈する. 両辺を$h_j\ne0$で割って, (\ref{eq:relation_C_norm})をつかうと,
+\begin{align}
+  \frac{x - y}{h_j} \phi_j(x)\phi_j(y) = \frac{1}{h_j} F_j(x, y) - \frac{1}{h_{j-1}} F_{j-1}(x, y).
+\end{align}
+$j=0,\dots,n$で和をとると,
+\begin{align}
+  (x - y) \sum_{j=0}^{n} \frac{\phi_j(x)\phi_j(y)}{h_j} = \frac{1}{h_n} F_n(x, y).
+\end{align}
+つまり,
+\begin{align}
+  \sum_{j=0}^{n} \frac{\phi_j(x)\phi_j(y)}{h_j} = \frac{1}{h_n} \frac{\phi_{n+1}(x)\phi_n(y) - \phi_n(x)\phi_{n+1}(y)}{x - y}.
+\end{align}
+これを\textbf{クリストッフェル・ダルブーの公式}という. さらに$y\to x$の極限をとると, \textbf{合流型クリストッフェル・ダルブーの公式}
+\begin{align}
+  \sum_{j=0}^{n} \frac{\phi_j(x)^2}{h_j} = \frac{1}{h_n} \left( \phi_{n+1}'(x)\phi_n(x) - \phi_n'(x)\phi_{n+1}(x) \right),
+\end{align}
+がえられる.
+
+この公式に, $\phi_n(x)$ の零点 $x_i^{(n)}$ を代入すると,
+\begin{align}
+   \phi_n'(x_i^{(n)})\phi_{n+1}(x_i^{(n)}) = - h_n \sum_{j=0}^{n} \frac{\phi_j(x_i^{(n)})^2}{h_j} < 0.\label{eq:sign_product_atzero}
+\end{align}
+いま, $\phi_n(x)$はモニックにとってあり, 全ての根は単根だから,
+\begin{align}
+  \text{sgn}(\phi_n'(x_i^{(n)})) = (-1)^{n-i}.
+\end{align}
+これと(\ref{eq:sign_product_atzero})より,
+\begin{align}
+  \text{sgn}(\phi_{n+1}(x_i^{(n)})) = (-1)^{n+1-i}.
+\end{align}
+これと$\lim_{x\to+\infty}\phi_{n+1}(x)=+\infty$, $\lim_{x\to-\infty}\phi_{n+1}(x)=(-1)^{n+1}\times\infty$, および中間値の定理によって, $\phi_{n+1}$の零点の間に$\phi_n$の零点が並ぶこと, つまり(\ref{eq:zero_interlacing})が示された.
+
+
+\subsection{汎函数行列式とGel'fand-Yaglomの定理}
+\noindent
+\textbf{広} こんどは汎函数行列式についての話. 汎函数行列式っていうのは, たとえば
+\begin{align}
+  \mathcal O=-\frac{d^2}{dx^2}+V(x),
+\end{align}
+のような線型作用素と, 適切に境界条件を定めたときのその固有値と固有関数
+\begin{align}
+  \mathcal O\psi_n(x)=\lambda_n\psi_n(x),
+\end{align}
+に対する固有値の積
+\begin{align}
+  \det\mathcal O\coloneqq\prod_n\lambda_n,
+\end{align}
+のこと. もちろんこの積は一般には無限積になって収束しないこともあるから, その場合はゼータ関数を通じて
+\begin{align}
+  \zeta_{\mathcal O}(s)\coloneqq\sum_n\frac1{\lambda_n^s},\quad\det\mathcal O\coloneqq\exp\left(-\zeta_{\mathcal O}'(0)\right),
+\end{align}
+のように正規化する. ここでは, 2つの微分作用素
+\begin{align}
+  \mathcal{O}_1 = -\frac{d^2}{dx^2} + V_1(x),\\
+  \mathcal{O}_2 = -\frac{d^2}{dx^2} + V_2(x),
+\end{align}
+があってディリクレ境界条件 $\psi(0) = \psi(L) = 0$が課されているとする. このとき, 片側の端点に境界条件をおいた微分方程式の解を
+\begin{align}
+  \mathcal{O}_1 \psi_1(x) = 0, \quad \psi_1(0) = 0, \quad \psi_1'(0) = 1,\\
+  \mathcal{O}_2 \psi_2(x) = 0, \quad \psi_2(0) = 0, \quad \psi_2'(0) = 1,
+\end{align}
+とすると, 汎函数行列式の比は, 反対側の端点での値を使って
+\begin{tcolorbox}
+\begin{align}
+  \frac{\det \mathcal{O}_1}{\det \mathcal{O}_2} = \frac{\psi_1(L)}{\psi_2(L)},\label{eq:gelfand_yaglom}
+\end{align}
+\end{tcolorbox}
+\noindent
+と書ける. これを\textbf{Gel'fand-Yaglomの定理}という. 証明は難しくはないけど, 複素関数の知識を技巧的に使っていておもしろいからここでやってみよう.
+
+複素パラメータ$\lambda$を導入した固有値問題
+\begin{align}
+  \left( \mathcal{O} - \lambda \right) \psi_\lambda(x) = 0,\quad \psi_\lambda(0) = 0, \quad \psi_\lambda'(0) = 1,
+\end{align}
+を考える. この解となる関数$\psi_\lambda(x)$の反対側の端点での値$\psi_\lambda(L)$を$\lambda$の関数とみなすと, $\lambda$が$\mathcal O$の固有値$\lambda_n$に等しいときこの関数は0となる. 同じことが2つの作用素$\mathcal O_1$と$\mathcal O_2$についていえるから, ワイエルシュトラスの因数分解定理によって,
+\begin{align}
+  \frac{\psi_{1, \lambda}(L)}{\psi_{2, \lambda}(L)} = f(\lambda) \prod_{n=1}^{\infty} \frac{\lambda_{1, n} - \lambda}{\lambda_{2, n} - \lambda},
+\end{align}
+のように書ける. ここで$f(\lambda)$は複素平面上正則で, $\lambda\to\infty$で$f(\lambda)\to1$をみたすから, リウヴィルの定理により恒等的に$f(\lambda)\equiv1$になる. 最後に$\lambda=0$を代入すると(\ref{eq:gelfand_yaglom})をえる.
 
 \begin{thebibliography}{9}
   \bibitem{} 原田勲, 杉山忠男, 講談社基礎物理学シリーズ『量子力学I』4.2節, 5.3節, 2009年.
